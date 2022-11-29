@@ -1,0 +1,18 @@
+.container-pokemon {
+  border: 1px solid black;
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-pokemon .box-imagem {
+  height: 125px;
+  display: flex;
+  align-items: center;
+}
+
+.container-pokemon .box-imagem img {
+  width: max-content;
+}

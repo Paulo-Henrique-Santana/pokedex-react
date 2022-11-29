@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./Header";
+import ContainerPokemons from "./ContainerPokemons";
 
 function App() {
+  const [urlPokemons, setUrlPokemons] = React.useState(null);
+
+  React.useEffect(() => {
+    const buscarApi = async () => {
+      const req = await fetch("https://pokeapi.co/api/v2/pokemon/");
+      const json = await req.json();
+      setUrlPokemons(json.results);
+    };
+    buscarApi();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      {urlPokemons && <ContainerPokemons urlPokemons={urlPokemons} />}
+    </>
   );
 }
 
