@@ -1,9 +1,16 @@
 .container-pokemons {
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 40px 20px;
   max-width: 1200px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  color: white;
+}
+
+.container-pokemons .msg-carregando {
+  margin-top: 150px;
+  font-size: 2rem;
+  font-weight: bold;
 }
