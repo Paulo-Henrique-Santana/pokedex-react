@@ -2,18 +2,22 @@ import React from "react";
 
 import "./css/CardPokemon.css";
 
-const CardPokemon = ({ dados: { name, sprites, types } }) => {
-  const urlImg =
-    sprites.versions["generation-v"]["black-white"].animated["front_default"];
+const CardPokemon = ({ dados: { name, types }, urlImg }) => {
   return (
     <div className="container-pokemon">
       <h1>{name}</h1>
-      <div className="box-imagem">
+
+      <div className="box-image">
         <img src={urlImg} alt={name} />
       </div>
-      {types.map(({ type }) => (
-        <p key={type.name}>{type.name}</p>
-      ))}
+
+      <div className="box-type">
+        {types.map(({ type }) => (
+          <p className={`tipo ${type.name}`} key={type.name}>
+            {type.name}
+          </p>
+        ))}
+      </div>
     </div>
   );
 };

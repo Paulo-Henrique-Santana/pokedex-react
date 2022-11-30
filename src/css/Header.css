@@ -3,8 +3,9 @@ header {
   justify-content: center;
 }
 
-header .logo {
-  padding: 0 50px;
-  max-width: 100%;
-  display: block;
+header h1 {
+  margin: 50px 0;
+  font-size: 10rem;
+  font-weight: normal;
+  color: white;
 }
