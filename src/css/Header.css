@@ -1,11 +1,58 @@
 header {
+  margin: 50px 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 50px;
+  animation: 1.5s balance infinite ease-in-out;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 header h1 {
-  margin: 50px 0;
-  font-size: 10rem;
+  font-size: 7rem;
   font-weight: normal;
-  color: white;
+  color: #232323;
+}
+
+.pokeball {
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes balance {
+  0% {
+    transform: translate3d(0, -3px, 0);
+  }
+  50% {
+    transform: translate3d(0, 3px, 0);
+  }
+  100% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+@media (max-width: 679px) {
+  header {
+    gap: 15px;
+  }
+  header h1 {
+    font-size: 6rem;
+  }
+  .pokeball {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 459px) {
+  header h1 {
+    font-size: 4rem;
+  }
+  .pokeball {
+    width: 50px;
+    height: 50px;
+  }
 }

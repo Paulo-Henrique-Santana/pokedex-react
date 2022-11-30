@@ -28,7 +28,7 @@ main {
   border: 2px solid white;
   border-radius: 2px;
   color: white;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
   font-size: 1.5rem;
   cursor: pointer;
 }

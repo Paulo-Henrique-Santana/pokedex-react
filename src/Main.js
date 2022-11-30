@@ -27,7 +27,6 @@ const Main = () => {
         urlPokemons.map(async ({ url }) => {
           const req = await fetch(url);
           const json = await req.json();
-          console.log(json);
           return json;
         })
       );
