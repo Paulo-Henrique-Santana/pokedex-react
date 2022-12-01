@@ -29,8 +29,9 @@ form .btn-search {
   color: white;
   padding: 5px 10px;
   background-color: rgba(0, 0, 0, 0.3);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -51,4 +52,5 @@ form .btn-search {
   background-color: rgba(0, 0, 0, 0.4);
   font-size: 1.5rem;
   cursor: pointer;
+  text-transform: uppercase;
 }
