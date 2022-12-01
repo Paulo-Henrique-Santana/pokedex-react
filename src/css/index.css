@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  background-color: #cee7f9;
   background-image: url('../img/background.png');
   background-attachment: fixed;
+  background-size: cover;
 }

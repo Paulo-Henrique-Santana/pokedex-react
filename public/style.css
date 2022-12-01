@@ -10,8 +10,3 @@
 button:hover {
   transform: scale(1.05);
 }
-
-body {
-  background-color: #cee7f9;
-  background-image: url('../src/img/background.png');
-}
