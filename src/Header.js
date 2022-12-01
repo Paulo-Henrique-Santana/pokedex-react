@@ -1,12 +1,12 @@
 import React from "react";
 import "./css/Header.css";
-import imgPokeball from "./img/pokeball.webp";
+import imgPokedex from "./img/pokedex.webp";
 
 const Header = () => {
   return (
     <header>
       <h1>Pokédex</h1>
-      <img className="pokeball" src={imgPokeball} alt="" />
+      <img className="pokedex" src={imgPokedex} alt="" />
     </header>
   );
 };

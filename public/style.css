@@ -3,8 +3,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: monospace;
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  transform: scale(1.01);
 }
 
 body {
-  background-color: #202020;
+  background-color: #cee7f9;
+  background-image: url('../src/img/background.png');
 }
