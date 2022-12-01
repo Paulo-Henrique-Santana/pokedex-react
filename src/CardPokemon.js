@@ -2,9 +2,10 @@ import React from "react";
 
 import "./css/CardPokemon.css";
 
-const CardPokemon = ({ dados: { name, types }, urlImg }) => {
+const CardPokemon = ({ dados: { id, name, types }, urlImg }) => {
   return (
     <div className="card-pokemon">
+      <div className="id">#{id}</div>
       <h1 className="name">{name.replace(name[0], name[0].toUpperCase())}</h1>
 
       <div className="box-image">
