@@ -21,10 +21,7 @@ const ContainerPokemons = ({ pokemons }) => {
         pokemons.sprites.versions["generation-v"]["black-white"].animated[
           "front_default"
         ];
-      if (urlImg)
-        return (
-          <CardPokemon key={pokemons.id} dados={pokemons} urlImg={urlImg} />
-        );
+      return <CardPokemon key={pokemons.id} dados={pokemons} urlImg={urlImg} />;
     }
   };
 

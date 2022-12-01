@@ -50,10 +50,18 @@ const Main = () => {
       // limpa os pokemons enquanto pesquisa
       setPokemons(null);
       try {
-        setPokemons(
-          await fetchApi(`https://pokeapi.co/api/v2/pokemon/${input}`)
+        const pokemon = await fetchApi(
+          `https://pokeapi.co/api/v2/pokemon/${input}`
         );
-        setMsgLoading(null);
+        // verifica se a imagem do pokemon existe antes de retorná-lo
+        const urlImg =
+          pokemon.sprites.versions["generation-v"]["black-white"].animated[
+            "front_default"
+          ];
+        if (urlImg) {
+          setPokemons(pokemon);
+          setMsgLoading(null);
+        } else setMsgLoading("Pokemon not found");
       } catch (error) {
         setMsgLoading("Pokemon not found");
       }
@@ -71,7 +79,7 @@ const Main = () => {
           type="text"
           value={input}
           ref={inputElement}
-          placeholder="Search for Pokemons"
+          placeholder='Ex: "charmander", "37"'
           onChange={({ target }) => setInput(target.value)}
         />
         <button className="btn-search" onClick={searchPokemon}>
