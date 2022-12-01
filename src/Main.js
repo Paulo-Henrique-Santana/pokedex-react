@@ -17,24 +17,25 @@ const Main = () => {
   };
 
   // faz uma requisição na api passando o limite de pokemons para buscar
+  const searchPokemons = async () => {
+    const { results } = await fetchApi(
+      `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${limit}`
+    );
+
+    const dadosPokemons = await Promise.all(
+      results.map(async ({ url }) => {
+        const req = await fetch(url);
+        const json = await req.json();
+        return json;
+      })
+    );
+
+    setPokemons(dadosPokemons);
+    setMsgLoading(null);
+  };
+
   // atualiza sempre que o valor de limit for alterado
   React.useEffect(() => {
-    const searchPokemons = async () => {
-      const { results } = await fetchApi(
-        `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${limit}`
-      );
-
-      const dadosPokemons = await Promise.all(
-        results.map(async ({ url }) => {
-          const req = await fetch(url);
-          const json = await req.json();
-          return json;
-        })
-      );
-
-      setPokemons(dadosPokemons);
-      setMsgLoading(null);
-    };
     searchPokemons();
   }, [limit]);
 
@@ -46,11 +47,20 @@ const Main = () => {
   const searchPokemon = async (event) => {
     event.preventDefault();
     if (input) {
+      // limpa os pokemons enquanto pesquisa
       setPokemons(null);
-      setPokemons(await fetchApi(`https://pokeapi.co/api/v2/pokemon/${input}`));
-      setMsgLoading(null);
+      try {
+        setPokemons(
+          await fetchApi(`https://pokeapi.co/api/v2/pokemon/${input}`)
+        );
+        setMsgLoading(null);
+      } catch (error) {
+        setMsgLoading("Pokemon not found");
+      }
     } else {
+      // busca os primeiros pokemons quando pesquisar com o campo vazio
       setLimit(20);
+      searchPokemons();
     }
   };
 
